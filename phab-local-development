@@ -1,0 +1,23 @@
+#!/bin/sh
+./bin/config set mysql.host 127.0.0.1
+./bin/config set --database account.editable true
+./bin/config set --database account.minimum-password-length 1
+./bin/config set --database audit.can-author-close-audit true
+./bin/config set --database auth.require-approval false
+./bin/config set --database darkconsole.enabled true
+./bin/config set --database differential.allow-reopen true
+./bin/config set --database differential.allow-self-accept true
+./bin/config set --database differential.always-allow-abandon true
+./bin/config set --database differential.always-allow-close true
+./bin/config set --database differential.close-on-accept true
+./bin/config set --database differential.enable-email-accept true
+./bin/config set --database differential.require-test-plan-field false
+./bin/config set --database diffusion.allow-http-auth true
+./bin/config set --database phabricator.allow-email-users true
+./bin/config set --database phabricator.developer-mode true
+./bin/config set --database phabricator.serious-business false
+./bin/config set phabricator.show-prototypes true
+./bin/config set --database policy.allow-public true
+./bin/config set --database pygments.enabled true
+./bin/config set --database remarkup.enable-embedded-youtube true
+./bin/config set --database user.require-real-name false
