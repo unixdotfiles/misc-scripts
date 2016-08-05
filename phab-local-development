@@ -18,6 +18,5 @@
 ./bin/config set --database phabricator.serious-business false
 ./bin/config set phabricator.show-prototypes true
 ./bin/config set --database policy.allow-public true
-./bin/config set --database pygments.enabled true
 ./bin/config set --database remarkup.enable-embedded-youtube true
 ./bin/config set --database user.require-real-name false
