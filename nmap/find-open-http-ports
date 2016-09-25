@@ -1,0 +1,4 @@
+#!/bin/sh
+set -x
+hostrange="$1"
+sudo nmap -n -v -O -sV --version-intensity 9 -sS -p80,443 "$hostrange"
