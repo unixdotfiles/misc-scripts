@@ -2,4 +2,4 @@
 set -x
 hostrange="$1"
 shift
-sudo nmap -n -v -sS -p80,443 "$@" "$hostrange" 
+sudo nmap -n -v -sS -p80,443 --open "$@" "$hostrange"
