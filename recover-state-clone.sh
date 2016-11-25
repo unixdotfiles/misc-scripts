@@ -7,6 +7,9 @@ git clone git@github.com:unixdotfiles/dotfiles .conf
 mkdir -p ~/exps
 
 mkdir -p ~/svn
+
+git clone git@github.com:Codeux-Software/Textual.git
+
 mkdir -p pcgen
 
 for module in pcgen pcgen-base pcgen-formula pcgen-gui3 pcgen-utilities
