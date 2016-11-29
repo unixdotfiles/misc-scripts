@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import argparse
 import datetime
 import sys
@@ -36,7 +37,7 @@ def slow(f):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--file", type=argparse.FileType('r'))
+    parser.add_argument("--file", type=argparse.FileType('r'), required=True)
     args = parser.parse_args()
     slow(args.file)
 
