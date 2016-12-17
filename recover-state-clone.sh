@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd ~
-git clone git@github.com:unixdotfiles/bin
+git clone --recurse-submodules git@github.com:unixdotfiles/bin
 git clone git@github.com:unixdotfiles/dotfiles .conf
 
 mkdir -p ~/exps
