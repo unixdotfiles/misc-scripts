@@ -3,10 +3,7 @@
 cd ~
 git clone --recurse-submodules git@github.com:unixdotfiles/bin
 git clone git@github.com:unixdotfiles/dotfiles .conf
-
-mkdir -p ~/exps
-
-mkdir -p ~/svn
+mkdir -p ~/bin/submodules/go ~/exps ~/svn ~/tmp
 
 git clone git@github.com:Codeux-Software/Textual.git
 
