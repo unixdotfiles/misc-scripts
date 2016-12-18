@@ -1,2 +1,4 @@
 #!/bin/sh
 find /Applications -name Sparkle.framework -exec defaults read {}/../../Info.plist SUFeedURL \;
+# Older than  1.13.1 is particularly bad if combined with HTTP
+find /Applications -path '*Autoupdate.app/Contents/Info.plist' -exec echo {} \; -exec grep -A1 CFBundleShortVersionString '{}' \; | grep -v CFBundleShortVersionString
