@@ -1,0 +1,2 @@
+#!/bin/sh
+find /Applications -name Sparkle.framework -exec defaults read {}/../../Info.plist SUFeedURL \;
