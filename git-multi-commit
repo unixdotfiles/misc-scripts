@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+set -eux
+
+message="$1" 
+git diff --name-only|split -l15
+ls x*(.) 
+count=0
+for a in x*(.);
+do
+  git commit -m "$message (id: $count:$RANDOM)" $(<$a);
+  count=$(( $count + 1 ));
+done
+rm x*(.)
