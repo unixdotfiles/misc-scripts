@@ -3,7 +3,7 @@
 set -eux
 
 message="$1" 
-git diff --name-only|split -l15
+git diff --name-only|split -l "$2"
 ls x*(.) 
 count=0
 for a in x*(.);
