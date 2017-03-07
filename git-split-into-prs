@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+set -eux
+
+MIDNAME="$1"
+NEW="$2"
+BASE="$3"
+for sha in $(git log --format="%h" $(git merge-base "$NEW" "$BASE" ).."$NEW");
+do
+  git checkout -b eax/$MIDNAME/$sha origin/master && (git cherry-pick "$sha"|| git cherry-pick --abort);
+done;
+git push --mirror grimreaper
+for b in $(git branch|grep /$MIDNAME/)
+do
+  hub pull-request -h "$b" -m "$(git log --no-walk --format=%s $b)"
+done
+git checkout master
+git clean-branches
