@@ -10,9 +10,10 @@ do
   git checkout -b eax/$MIDNAME/$sha origin/master && (git cherry-pick "$sha"|| git cherry-pick --abort);
 done;
 git push --mirror grimreaper
-for b in $(git branch|grep /$MIDNAME/)
+for ref in $(git for-each-ref --format="%(refname)" "refs/heads/eax/$MIDNAME/")
 do
-  hub pull-request -h "$b" -m "$(git log --no-walk --format=%s $b)"
+  ref="${ref##refs/heads/}"
+  hub pull-request -h "$ref" -m "$(git log --no-walk --format=%s $ref)"
 done
 git checkout master
 git clean-branches
