@@ -10,6 +10,7 @@ do
   git checkout -b eax/$MIDNAME/$sha origin/master && (git cherry-pick "$sha"|| git cherry-pick --abort);
 done;
 git push --mirror grimreaper
+git push --mirror grimreaper
 for ref in $(git for-each-ref --format="%(refname)" "refs/heads/eax/$MIDNAME/")
 do
   ref="${ref##refs/heads/}"
