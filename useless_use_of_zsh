@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 most_useless_use_of_zsh () {
 	local lines columns colour a b p q i pnew
 	((columns=COLUMNS-1, lines=LINES-1, colour=0))
