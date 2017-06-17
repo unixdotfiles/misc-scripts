@@ -1,6 +1,0 @@
-#!/bin/sh
-set -e
-
-git checkout --detach HEAD
-git branch -f master origin/master
-git checkout master
