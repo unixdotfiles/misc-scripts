@@ -2,6 +2,10 @@
 
 set -eux
 
+today=$(date "+%Y-%m-%d")
+export GIT_COMMITTER_DATE="$today"
+export GIT_AUTHOR_DATE="$today"
+
 message="$1" 
 git diff --name-only|split -l "$2"
 ls x*(.) 
