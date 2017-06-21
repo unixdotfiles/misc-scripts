@@ -1,0 +1,7 @@
+git for-each-ref --format='%(refname:short) %(upstream:short)' refs/heads | while read -r branch upstream
+do
+  git checkout $branch
+  ahead="$(git rev-list --use-bitmap-index --count "$upstream..$branch")"
+  ahead=$(( $ahead + 1 ))
+  EDITOR=cat git-redate -c "$ahead"
+done
