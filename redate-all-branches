@@ -3,5 +3,5 @@ do
   git checkout $branch
   ahead="$(git rev-list --use-bitmap-index --count "$upstream..$branch")"
   ahead=$(( $ahead + 1 ))
-  EDITOR=cat git-redate -c "$ahead"
+  git-redate -c "$ahead"
 done
