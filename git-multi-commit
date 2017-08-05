@@ -2,7 +2,7 @@
 
 set -eux
 
-today=$(date "+%Y-%m-%d")
+today="$(date '+%Y-%m-%d')T12:00:00-07:00"
 export GIT_COMMITTER_DATE="$today"
 export GIT_AUTHOR_DATE="$today"
 
