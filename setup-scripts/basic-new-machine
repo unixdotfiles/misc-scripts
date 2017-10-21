@@ -1,3 +1,6 @@
+pkg install zsh git vim
+chsh  -s /usr/local/bin/zsh eax
+---
 git clone --recurse-submodules https://git@github.com/unixdotfiles/misc-scripts
 git clone --recurse-submodules https://git@github.com/unixdotfiles/bin
 git clone https://git@github.com/unixdotfiles/dotfiles .conf
