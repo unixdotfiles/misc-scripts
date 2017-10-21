@@ -2,3 +2,4 @@ git clone --recurse-submodules https://git@github.com/unixdotfiles/misc-scripts
 git clone --recurse-submodules https://git@github.com/unixdotfiles/bin
 git clone https://git@github.com/unixdotfiles/dotfiles .conf
 mkdir -p ~/bin/submodules/go ~/svn ~/tmp
+cd ~/.conf && ./installer.sh
