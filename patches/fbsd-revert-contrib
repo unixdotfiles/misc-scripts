@@ -1,0 +1,2 @@
+#!/bin/sh
+svn revert -R contrib crypto gnu sys/contrib sys/gnu/ sys/crypto/ lib/clang/ usr.bin/clang/
