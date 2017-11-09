@@ -6,7 +6,6 @@ git clone git@github.com:unixdotfiles/dotfiles .conf
 mkdir -p ~/bin/submodules/go ~/svn ~/tmp
 
 git clone git@github.com:Codeux-Software/Textual.git
-git clone https://github.com/reinderien/mimic.git
 
 mkdir -p pcgen
 
