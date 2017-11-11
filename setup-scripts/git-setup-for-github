@@ -4,3 +4,6 @@ git config --add remote.origin.fetch '+refs/pull/*/head:refs/remotes/origin/pr/*
 
 # Stash
 git config --add remote.origin.fetch '+refs/pull-requests/*/from:refs/remotes/origin/pr/*'
+
+# Gitlab
+git config --add remote.origin.fetch '+refs/merge-requests/*/head:refs/remotes/gitlab/merge-requests/*'
