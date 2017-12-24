@@ -1,2 +1,16 @@
 #!/bin/sh
-svn revert -R contrib crypto gnu sys/contrib sys/gnu sys/crypto cddl/contrib sys/cddl/contrib
+dirs="
+contrib
+crypto
+gnu
+sys/contrib
+sys/gnu
+sys/crypto
+cddl/contrib
+sys/cddl/contrib
+sys/libkern/zlib.c 
+sys/dev/pms/RefTisa
+sys/dev/isp
+stand/ficl/ficl.h
+"
+echo "$dirs" | xargs svn revert -R
