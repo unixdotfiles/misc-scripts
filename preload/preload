@@ -1,0 +1,17 @@
+#!/bin/sh
+lpath="$(realpath ~/misc-scripts/preload)"
+for item
+do
+  if [ "$item" = "--" ];
+  then
+    break
+  fi
+  LD_PRELOAD="${LD_PRELOAD}${lpath}/${item}.so"
+  export DYLD_INSERT_LIBRARIES="${DYLD_INSERT_LIBRARIES}${lpath}/${item}.dylib"
+  shift
+done
+DYLD_FORCE_FLAT_NAMESPACE=1
+
+export DYLD_FORCE_FLAT_NAMESPACE
+export LD_PRELOAD
+exec "$@"
