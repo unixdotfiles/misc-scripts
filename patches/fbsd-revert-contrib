@@ -12,5 +12,6 @@ sys/libkern/zlib.c
 sys/dev/pms/RefTisa
 sys/dev/isp
 stand/ficl/ficl.h
+secure
 "
 echo "$dirs" | xargs svn revert -R
