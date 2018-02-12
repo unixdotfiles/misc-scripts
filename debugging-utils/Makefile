@@ -1,1 +1,1 @@
-all:	abort wordcheck
+all:	abort wordcheck getrusage
