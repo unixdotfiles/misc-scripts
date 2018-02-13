@@ -5,7 +5,7 @@
 #include <spawn.h>
 #include <sys/resource.h>
 
-#define PRETTY_PRINT(item) #item ":\t%li\n"
+#define PRETTY_PRINT(item) #item ": %li\n"
 
 extern char **environ;
 
