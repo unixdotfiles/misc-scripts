@@ -12,8 +12,7 @@ image="$2"
 #-net nic,macaddr=ba:be:00:fa:ce:01,model=virtio \
 #dd-netdev user,id=vmnic -device virtio-net,netdev=vmnic \
 
-exec sudo \
-  qemu-system-x86_64 \
+exec qemu-system-x86_64 \
   -usb \
   -nographic \
   -m 1024 \
@@ -21,6 +20,6 @@ exec sudo \
   -boot menu=on,order=dc \
   -drive "file=$iso,media=cdrom" \
   -drive "file=$image,cache=writeback" \
-  -gdb tcp::1234 \
+  -gdb tcp::4445 \
   -net nic,model=e1000 -net tap,name=tap0,script=no \
   ''
