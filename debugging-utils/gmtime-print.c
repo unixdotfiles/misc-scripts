@@ -1,13 +1,33 @@
+#include <getopt.h>
+#include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
 
 int main(int argc, char *argv[]) {
+	bool do_posix = false;
+	int c;
+
+	while ((c = getopt(argc, argv, "p"))) {
+		switch (c) {
+			case 'p':
+				do_posix = true;
+				break;
+		}
+	}
+	argc -= optind;
+
 	if (argc != 2) {
 		printf("usage: %s: time_t\n", argv[0]);
 		exit(1);
 	}
 	time_t orig_time = atoi(argv[1]);
+
+#ifdef __FreeBSD__
+	if (do_posix) {
+		orig_time = time2posix(orig_time);
+	}
+#endif
 
 	struct tm *info;
 
