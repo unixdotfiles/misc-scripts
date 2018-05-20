@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <spawn.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 #include <sys/resource.h>
 
 #define PRETTY_PRINT(item) #item ": %li\n"
