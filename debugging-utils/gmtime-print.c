@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
 		printf("usage: %s: time_t\n", argv[0]);
 		exit(1);
 	}
-	time_t orig_time = strtonum(argv[1], 0, 1 << sizeof(time_t), NULL);
+	time_t orig_time = atoi(argv[1]);
 
 	struct tm *info;
 
