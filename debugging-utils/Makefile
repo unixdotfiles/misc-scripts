@@ -1,1 +1,1 @@
-all:	abort wordcheck getrusage
+all:	abort wordcheck getrusage gmtime-print
