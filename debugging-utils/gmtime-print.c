@@ -23,6 +23,12 @@ int main(int argc, char *argv[]) {
 	}
 	time_t orig_time = atoi(argv[1]);
 
+#ifdef __FreeBSD__
+	if (do_posix) {
+		orig_time = time2posix(orig_time);
+	}
+#endif
+
 	struct tm *info;
 
 	info = gmtime(&orig_time );
