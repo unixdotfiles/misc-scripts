@@ -1,5 +1,7 @@
 abort
+empty
 getrusage
 gmtime-print
 wordcheck
 spectre
+vgcore.*
