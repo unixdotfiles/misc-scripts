@@ -7,3 +7,6 @@ env CCACHE_DIR=/srv/obj/ccache-poudriere ccache -s | grep -E "$ccache_pattern"
 print -nP "%F{blue}local ccache stats%f\n"
 ccache -s 2>&1 | grep -E "$ccache_pattern"
 
+print -nP "%F{blue}Boot Information%f\n"
+sysctl kern.bootfile
+
