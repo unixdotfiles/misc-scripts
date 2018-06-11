@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-ccache_pattern="(cache directory|cleanups|cache size)"
+ccache_pattern="(cache directory|cleanups|cache size|cache hit rate)"
 
 print -nP "%F{blue}poudriere ccache stats%f\n" 2>&1 
 env CCACHE_DIR=/srv/obj/ccache-poudriere ccache -s | grep -E "$ccache_pattern"
