@@ -18,15 +18,11 @@
 
 #define PORT 23
 
-void usage(char * progname) __attribute__ ((noreturn));
-unsigned int GetOutputLength(unsigned int lInputLong);
-int EncodeString(BLOWFISH_CTX *ctx,char *pInput,char *pOutput, int lSize);
-
 static char output_buf[0x100];
 
 static BLOWFISH_CTX ctx;
 
-struct PAYLOAD
+static struct PAYLOAD
 {
 	char signature[0x10];
 	char mac[0x10];
@@ -35,7 +31,7 @@ struct PAYLOAD
 	char reserved[0x40];
 } payload;
 
-void usage(char * progname)
+static void __attribute__((noreturn)) usage(char * progname)
 {
 	fprintf(stderr,
 		"Usage: %s <host ip> <host mac> <user name> [password]\n",
@@ -43,7 +39,7 @@ void usage(char * progname)
 	exit(1);
 }
 
-int socket_connect(char *host, in_port_t port){
+static int socket_connect(char *host, in_port_t port){
    struct hostent *hp;
    struct sockaddr_in addr;
    int on = 1, sock;
@@ -68,7 +64,7 @@ int socket_connect(char *host, in_port_t port){
    return sock;
 }
 
-unsigned int GetOutputLength(unsigned int lInputLong)
+static unsigned int GetOutputLength(unsigned int lInputLong)
 {
 	unsigned int lVal = lInputLong % 8;
 
@@ -78,7 +74,7 @@ unsigned int GetOutputLength(unsigned int lInputLong)
 		return lInputLong;
 }
 
-int EncodeString(BLOWFISH_CTX *ctx,char *pInput,char *pOutput, int lSize)
+static int EncodeString(BLOWFISH_CTX *ctx,char *pInput,char *pOutput, int lSize)
 {
 	int lCount;
 	unsigned int lOutSize;
@@ -110,7 +106,7 @@ int EncodeString(BLOWFISH_CTX *ctx,char *pInput,char *pOutput, int lSize)
 	return lCount;
 }
 
-int fill_payload(int argc, char * input[])
+static int fill_payload(int argc, char * input[])
 {
 	MD5_CTX MD;
 	unsigned char MD5_key[0x10];
