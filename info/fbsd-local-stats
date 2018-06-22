@@ -10,3 +10,8 @@ ccache -s 2>&1 | grep -E "$ccache_pattern"
 print -nP "%F{blue}Boot Information%f\n"
 sysctl kern.bootfile
 
+print -nP "%F{blue}Sysctl tuning%f\n"
+float cur_vnodes="$(sysctl -n vfs.numvnodes)"
+float max_vnodes="$(sysctl -n kern.maxvnodes)"
+
+printf "numnodes usage: %0.2f%%\n" $(( $cur_vnodes / $max_vnodes ))
