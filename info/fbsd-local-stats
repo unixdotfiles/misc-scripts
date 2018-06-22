@@ -13,6 +13,8 @@ ccache -s 2>&1 | grep -E "$ccache_pattern"
 
 title "Boot Information"
 sysctl kern.bootfile
+printf "boot env now: %s\n" $(beadm list -H|awk '$2 ~ /N/ {print $1}')
+printf "boot env reboot: %s\n" $(beadm list -H|awk '$2 ~ /R/ {print $1}')
 
 title "sysctl tuning"
 float cur_vnodes="$(sysctl -n vfs.numvnodes)"
