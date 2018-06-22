@@ -1,16 +1,20 @@
 #!/usr/bin/env zsh
 
+title() {
+  print -nP "%F{blue}$@%f\n"
+}
+
 ccache_pattern="(cache directory|cleanups|cache size|cache hit rate)"
 
-print -nP "%F{blue}poudriere ccache stats%f\n" 2>&1 
+title "poudriere ccache stats"
 env CCACHE_DIR=/srv/obj/ccache-poudriere ccache -s | grep -E "$ccache_pattern"
-print -nP "%F{blue}local ccache stats%f\n"
+title "local ccache stats"
 ccache -s 2>&1 | grep -E "$ccache_pattern"
 
-print -nP "%F{blue}Boot Information%f\n"
+title "Boot Information"
 sysctl kern.bootfile
 
-print -nP "%F{blue}Sysctl tuning%f\n"
+title "sysctl tuning"
 float cur_vnodes="$(sysctl -n vfs.numvnodes)"
 float max_vnodes="$(sysctl -n kern.maxvnodes)"
 
