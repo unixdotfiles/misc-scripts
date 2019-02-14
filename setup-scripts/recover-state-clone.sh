@@ -5,8 +5,6 @@ git clone --recurse-submodules git@github.com:unixdotfiles/bin
 git clone git@github.com:unixdotfiles/dotfiles .conf
 mkdir -p ~/bin/submodules/go ~/svn ~/tmp
 
-git clone git@github.com:Codeux-Software/Textual.git
-
 mkdir -p pcgen
 
 for module in pcgen pcgen-base pcgen-formula pcgen-gui3 pcgen-utilities
@@ -29,7 +27,7 @@ do
   dirname="${modulename}"
   (
     cd macports
-    git clone git@github.com:macports:$module.git "$dirname"
+    git clone git@github.com:macports/macports-$module.git "$dirname"
     cd "$dirname"
     git remote add grimreaper git@github.com:grimreaper/$module.git
   )
