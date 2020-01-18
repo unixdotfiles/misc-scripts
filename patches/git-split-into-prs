@@ -2,6 +2,18 @@
 
 set -ux
 
+if ! git remote show grimreaper > /dev/null 2>&1
+then
+  echo "remote with name grimreaper must exist"
+  exit 1
+fi
+
+if [ $# -ne 3 ]
+then
+  echo "$0: midname tip base"
+  exit 1
+fi
+
 today=$(date "+%Y-%m-%d")
 export GIT_COMMITTER_DATE="${today}T12:00:00-07:00"
 export GIT_AUTHOR_DATE="${today}T12:00:00-07:00"
