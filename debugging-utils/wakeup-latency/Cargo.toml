@@ -8,3 +8,5 @@ publish = false
 [dependencies]
 libc = "0.2.66"
 floating-duration = "0.1.2"
+streaming-stats = "0.2.3"
+signal-hook = "0.1.12"
