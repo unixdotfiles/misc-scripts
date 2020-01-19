@@ -6,3 +6,4 @@ gmtime-print
 wordcheck
 spectre
 vgcore.*
+target/
