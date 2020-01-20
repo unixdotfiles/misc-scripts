@@ -1,6 +1,6 @@
 [package]
 name = "wakeup-latency"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["Eitan Adler <lists@eitanadler.com>"]
 edition = "2018"
 publish = false
@@ -10,3 +10,4 @@ libc = "0.2.66"
 floating-duration = "0.1.2"
 streaming-stats = "0.2.3"
 signal-hook = "0.1.12"
+clap = "2.33.0"

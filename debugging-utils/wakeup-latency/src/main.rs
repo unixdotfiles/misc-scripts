@@ -17,19 +17,36 @@
 
 //! Shows how much latency usleep has
 
-use std::time::{Instant, Duration};
+use std::time::{Duration, Instant};
 
-use libc::usleep;
 use floating_duration::TimeAsFloat;
+use libc::usleep;
 
 use stats::OnlineStats;
+
+use clap::{app_from_crate, crate_authors, crate_description, crate_name, crate_version, Arg};
 
 const SECOND: Duration = Duration::from_secs(1);
 
 fn main() {
+    let matches = app_from_crate!()
+        .arg(
+            Arg::with_name("count")
+                .short("c")
+                .long("count")
+                .takes_value(true),
+        )
+        .get_matches();
+
+    let count_iter: Box<dyn Iterator<Item = u32>> =
+        matches.value_of("count").map_or(Box::new(0..), |v: &str| {
+            let parsed: u32 = v.parse::<u32>().expect("count must be an integer");
+            Box::new(0..parsed)
+        });
+
     let mut stat_container = OnlineStats::new();
-//    signal_hook::flag::register(signal_hook::SIGINFO, display_stats);
-    loop {
+    //    signal_hook::flag::register(signal_hook::SIGINFO, display_stats);
+    for _ in count_iter {
         let before: Instant = Instant::now();
 
         unsafe {
@@ -38,7 +55,8 @@ fn main() {
         let delta: Duration = before.elapsed();
         let diff_from_second = delta - SECOND;
         stat_container.add(diff_from_second.as_nanos());
-        println!("{} (mean: {} stddev: {})",
+        println!(
+            "{} (mean: {} stddev: {})",
             diff_from_second.as_fractional_secs(),
             stat_container.mean() / SECOND.as_nanos() as f64,
             stat_container.stddev() / SECOND.as_nanos() as f64
