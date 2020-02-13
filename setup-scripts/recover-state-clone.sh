@@ -7,7 +7,7 @@ mkdir -p ~/bin/submodules/go ~/svn ~/tmp
 
 mkdir -p pcgen
 
-for module in pcgen pcgen-base pcgen-formula pcgen-gui3 pcgen-utilities
+for module in pcgen pcgen-base pcgen-formula pcgen-utilities
 do
   modulename="${module#pcgen-}"
   dirname="${modulename:-pcgen}"
@@ -35,14 +35,9 @@ done
 
 mkdir -p fbsd/phacility
 
-for module in libphutil phabricator
-do
-  modulename="${module}"
-  dirname="${modulename}"
-  (
-    cd fbsd/phacility
-    git clone https://github.com/freebsd/$module.git "$dirname"
-    cd "$dirname"
-    git remote add upstream https://github.com/phacility/$module.git
-  )
-done
+(
+  cd fbsd/phacility
+  git clone https://github.com/freebsd/phabricator.git "phabricator"
+  cd phabricator
+  git remote add upstream https://github.com/phacility/phabricator.git
+)
