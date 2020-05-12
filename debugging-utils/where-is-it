@@ -1,0 +1,6 @@
+# must be sourced to be meaningful
+
+whereis "$@"
+which "$@"
+whence "$@"
+type "$@"
