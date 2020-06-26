@@ -1,0 +1,5 @@
+# methods to find one's own public ip
+dig +short myip.opendns.com @resolver1.opendns.com
+dig +short @ns1.google.com o-o.myaddr.l.google.com TXT -4 +short
+curl ipaddress.sh
+
