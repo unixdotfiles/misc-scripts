@@ -1,1 +1,12 @@
+echo '"$@"'
 ./wordcheck "$@"
+echo '$@'
+./wordcheck $@
+echo '"$*"'
+./wordcheck "$*"
+echo '$*'
+./wordcheck $*
+echo '$#'
+echo $#
+echo '$0'
+echo $0
