@@ -1,10 +1,13 @@
-javac c/C.java
-javac -cp b b/B.java 
-javac -cp a a/A.java ## exports B
+set -x
 
-# strict deps
+echo strict deps
+javac c/C.java
+javac -cp c b/B.java
+javac -cp b a/A.java ## exports B
 javac -cp a:b T.java
 
-# non-strict-deps
-
+echo non-strict-deps
+javac c/C.java
+javac -cp c b/B.java
+javac -cp b:c a/A.java ## exports B
 javac -cp a:b:c T.java
