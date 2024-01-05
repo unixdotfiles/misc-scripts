@@ -1,6 +1,8 @@
 #!/bin/sh
+set -x
 # html
 # Javascript
+file poly.html
 python2 poly.html
 clang++ -w -x c poly.html && ./a.out
 clang++ -w -trigraphs -x c poly.html && ./a.out
