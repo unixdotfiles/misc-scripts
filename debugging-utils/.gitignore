@@ -1,4 +1,5 @@
 abort
+charcheck
 detect-broken-poll
 empty
 getrusage
